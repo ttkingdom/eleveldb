@@ -8,7 +8,7 @@ if [ `uname -s` = 'SunOS' -a "${POSIX_SHELL}" != "true" ]; then
 fi
 unset POSIX_SHELL # clear it so if we invoke other scripts, they run as ksh as well
 
-LEVELDB_VSN="2.0.36"
+LEVELDB_VSN="macos-m1-docker-build"
 
 SNAPPY_VSN="1.0.4"
 
@@ -89,7 +89,7 @@ case "$1" in
         export LEVELDB_VSN="$LEVELDB_VSN"
 
         if [ ! -d leveldb ]; then
-            git clone https://github.com/basho/leveldb
+            git clone https://github.com/ttkingdom/leveldb
             (cd leveldb && git checkout $LEVELDB_VSN)
             (cd leveldb && git submodule update --init)
         fi
